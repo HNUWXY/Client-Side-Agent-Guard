@@ -1,0 +1,6 @@
+{"ts": "2026-04-28T12:22:57.753148+00:00", "direction": "input", "request_id": null, "tool": "pii_redact", "text": "Email a@b.com and phone 415-555-2671.", "metadata": {}}
+{"ts": "2026-04-28T12:22:57.754708+00:00", "direction": "output", "request_id": null, "tool": "pii_redact", "text": "Email ******* and phone ************.", "metadata": {"detections": 2, "types": ["email", "phone"], "full_len": 37, "summary_len": 37}}
+{"ts": "2026-04-28T12:23:09.354094+00:00", "direction": "input", "request_id": null, "tool": "pii_redact", "text": "Email a@b.com and phone 415-555-2671.", "metadata": {}}
+{"ts": "2026-04-28T12:23:09.355672+00:00", "direction": "output", "request_id": null, "tool": "pii_redact", "text": "Email ******* and phone ************.", "metadata": {"detections": 2, "types": ["email", "phone"], "full_len": 37, "summary_len": 37}}
+{"ts": "2026-04-28T12:23:36.626453+00:00", "direction": "input", "request_id": null, "tool": "pii_redact", "text": "Email a@b.com and phone 415-555-2671.", "metadata": {}}
+{"ts": "2026-04-28T12:23:36.626453+00:00", "direction": "output", "request_id": null, "tool": "pii_redact", "text": "Email ******* and phone ************.", "metadata": {"detections": 2, "types": ["email", "phone"], "full_len": 37, "summary_len": 37}}
