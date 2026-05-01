@@ -49,3 +49,7 @@ masks.json
 
 # mcp config
 app/mcp/mcp_config.json
+
+docs0/
+
+agent-governance-toolkit/
