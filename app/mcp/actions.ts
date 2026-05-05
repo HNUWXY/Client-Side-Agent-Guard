@@ -17,6 +17,7 @@ import {
 import fs from "fs/promises";
 import path from "path";
 import { getServerSideConfig } from "../config/server";
+import { guardToolCallServerSide } from "../lib/agent-guard-server";
 
 const logger = new MCPClientLogger("MCP Actions");
 const CONFIG_PATH = path.join(process.cwd(), "app/mcp/mcp_config.json");
@@ -337,14 +338,43 @@ export async function restartAllClients() {
 export async function executeMcpAction(
   clientId: string,
   request: McpRequestMessage,
+  chatSessionId?: string,
 ) {
   try {
     const client = clientsMap.get(clientId);
     if (!client?.client) {
       throw new Error(`Client ${clientId} not found`);
     }
+
+    let req: McpRequestMessage = request;
+    if (request.method === "tools/call" && request.params) {
+      const p = request.params as {
+        name?: string;
+        arguments?: Record<string, unknown>;
+      };
+      const toolName = p.name;
+      const args = p.arguments ?? {};
+      if (toolName) {
+        const sid = chatSessionId ?? `mcp:${clientId}`;
+        const guard = await guardToolCallServerSide(sid, toolName, args);
+        if (!guard.allowed) {
+          throw new Error(
+            `[AgentGuard] ${guard.block_reason ?? "MCP tool blocked"}`,
+          );
+        }
+        req = {
+          ...request,
+          params: {
+            ...request.params,
+            name: toolName,
+            arguments: guard.sanitized_arguments ?? args,
+          },
+        };
+      }
+    }
+
     logger.info(`Executing request for [${clientId}]`);
-    return await executeRequest(client.client, request);
+    return await executeRequest(client.client, req);
   } catch (error) {
     logger.error(`Failed to execute request for [${clientId}]: ${error}`);
     throw error;

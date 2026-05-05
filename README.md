@@ -79,4 +79,20 @@ yarn start
 
 ---
 
+## Python：客户端 Agent Guard（赛题后端能力）
+
+`src/agent_guard/` 为可与具体 LLM SDK 解耦的安全网关（**自带** `pii/` 扫描与脱敏，不依赖其他同学目录）；含 **HTTP 桥梁** 供 NextChat 等前端 `fetch` 联调。
+
+```bash
+export PYTHONPATH="$(pwd)/src:${PYTHONPATH}"
+python -m unittest src.agent_guard.tests.test_agent_guard src.agent_guard.tests.test_gateway -v
+PYTHONPATH=src python src/agent_guard/examples/minimal_demo.py
+PYTHONPATH=src python -m agent_guard --port 8765
+```
+（亦可用 `python -m agent_guard.bridge.http_server`。）
+
+完整用法、**NextChat 接入与 curl 测试步骤**见 [src/agent_guard/USAGE.md](src/agent_guard/USAGE.md)。
+
+---
+
 
