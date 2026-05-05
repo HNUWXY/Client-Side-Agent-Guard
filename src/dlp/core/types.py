@@ -7,7 +7,8 @@ from enum import Enum
 class PIIType(Enum):
     """PII categories aligned to agent_security's simple scanner."""
 
-    SSN = "ssn"
+    # China Resident Identity Card (18 chars)
+    RIC = "ric"
     CREDIT_CARD = "credit_card"
     EMAIL = "email"
     PHONE = "phone"

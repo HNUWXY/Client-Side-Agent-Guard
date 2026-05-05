@@ -10,12 +10,13 @@ class PIIScanner:
     """
     Regex-based PII scanner.
 
-    Patterns intentionally mirror the basic types in agent_security:
-    - SSN, credit card, email, phone, IP address
+    Patterns intentionally mirror the basic types in agent_security,
+    but SSN is adapted to China's Resident Identity Card (RIC):
+    - RIC, credit card, email, phone, IP address
     """
 
     PATTERNS: dict[PIIType, str] = {
-        PIIType.SSN: r"\b\d{3}-\d{2}-\d{4}\b",
+        PIIType.RIC: r"\b\d{17}[0-9Xx]\b",
         PIIType.CREDIT_CARD: r"\b\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b",
         PIIType.EMAIL: r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b",
         PIIType.PHONE: r"\b(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\b",
@@ -26,10 +27,10 @@ class PIIScanner:
         """
         Args:
             pii_types: iterable of type strings, e.g. ["email", "phone"].
-                      If None, defaults to ssn/credit_card/email/phone.
+                      If None, defaults to ric/credit_card/email/phone/ip_address.
         """
         self.pii_types = list(pii_types) if pii_types is not None else [
-            "ssn",
+            "ric",
             "credit_card",
             "email",
             "phone",
