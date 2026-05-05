@@ -11,6 +11,7 @@ import {
 } from "@fortaine/fetch-event-source";
 import { prettyObject } from "./format";
 import { fetch as tauriFetch } from "./stream";
+import { invokePluginToolWithGuard } from "@/app/lib/agent-guard";
 
 export function compressImage(file: Blob, maxSize: number): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -232,12 +233,10 @@ export function stream(
           toolCallMessage.tool_calls.map((tool) => {
             options?.onBeforeTool?.(tool);
             return Promise.resolve(
-              // @ts-ignore
-              funcs[tool.function.name](
-                // @ts-ignore
-                tool?.function?.arguments
-                  ? JSON.parse(tool?.function?.arguments)
-                  : {},
+              invokePluginToolWithGuard(
+                options?.agentGuardSessionId,
+                tool,
+                funcs,
               ),
             )
               .then((res) => {
@@ -458,12 +457,10 @@ export function streamWithThink(
           toolCallMessage.tool_calls.map((tool) => {
             options?.onBeforeTool?.(tool);
             return Promise.resolve(
-              // @ts-ignore
-              funcs[tool.function.name](
-                // @ts-ignore
-                tool?.function?.arguments
-                  ? JSON.parse(tool?.function?.arguments)
-                  : {},
+              invokePluginToolWithGuard(
+                options?.agentGuardSessionId,
+                tool,
+                funcs,
               ),
             )
               .then((res) => {

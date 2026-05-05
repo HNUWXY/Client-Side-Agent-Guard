@@ -38,6 +38,7 @@ import { collectModelsWithDefaultModel } from "../utils/model";
 import { createEmptyMask, Mask } from "./mask";
 import { executeMcpAction, getAllTools, isMcpEnabled } from "../mcp/actions";
 import { extractMcpJson, isMcpJson } from "../mcp/utils";
+import { runAgentGuardPrepareMessages } from "../lib/agent-guard";
 
 const localStorage = safeLocalStorage();
 
@@ -444,11 +445,48 @@ export const useChatStore = createPersistStore(
         const sendMessages = recentMessages.concat(userMessage);
         const messageIndex = session.messages.length + 1;
 
+        const guardPrep = await runAgentGuardPrepareMessages(
+          session.id,
+          sendMessages.map((m) => ({ role: m.role, content: m.content })),
+        );
+
+        let messagesForApi = sendMessages;
+        let userContentForSession: string | MultimodalContent[] = mContent;
+
+        if (!guardPrep.skipped && !guardPrep.allowed) {
+          showToast(
+            `[安全网关] 已拦截此条输入：${guardPrep.block_reason || "blocked"}`,
+          );
+          return;
+        }
+
+        if (
+          !guardPrep.skipped &&
+          guardPrep.allowed &&
+          guardPrep.messages?.length === sendMessages.length
+        ) {
+          const lastIx = sendMessages.length - 1;
+          const sanitized = guardPrep.messages[lastIx];
+          if (sanitized?.role === "user") {
+            messagesForApi = sendMessages.slice();
+            messagesForApi[lastIx] = {
+              ...sendMessages[lastIx],
+              content: sanitized.content as ChatMessage["content"],
+            };
+            userMessage = {
+              ...userMessage,
+              content: sanitized.content as ChatMessage["content"],
+            };
+            userContentForSession =
+              sanitized.content as typeof userContentForSession;
+          }
+        }
+
         // save user's and bot's message
         get().updateTargetSession(session, (session) => {
           const savedUserMessage = {
             ...userMessage,
-            content: mContent,
+            content: userContentForSession,
           };
           session.messages = session.messages.concat([
             savedUserMessage,
@@ -459,8 +497,9 @@ export const useChatStore = createPersistStore(
         const api: ClientApi = getClientApi(modelConfig.providerName);
         // make request
         api.llm.chat({
-          messages: sendMessages,
+          messages: messagesForApi,
           config: { ...modelConfig, stream: true },
+          agentGuardSessionId: session.id,
           onUpdate(message) {
             botMessage.streaming = true;
             if (message) {
@@ -834,7 +873,11 @@ export const useChatStore = createPersistStore(
             if (mcpRequest) {
               console.debug("[MCP Request]", mcpRequest);
 
-              executeMcpAction(mcpRequest.clientId, mcpRequest.mcp)
+              executeMcpAction(
+                  mcpRequest.clientId,
+                  mcpRequest.mcp,
+                  get().currentSession()?.id,
+                )
                 .then((result) => {
                   console.log("[MCP Response]", result);
                   const mcpResponse =

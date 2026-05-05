@@ -83,6 +83,8 @@ export interface ChatOptions {
   onController?: (controller: AbortController) => void;
   onBeforeTool?: (tool: ChatMessageTool) => void;
   onAfterTool?: (tool: ChatMessageTool) => void;
+  /** 供 Agent Guard `/guard/tool` 与会话级 Consent 绑定 */
+  agentGuardSessionId?: string;
 }
 
 export interface LLMUsage {
