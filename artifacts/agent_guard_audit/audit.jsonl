@@ -34,3 +34,20 @@
 {"id": "cec2a0b6-7a47-4f3e-92d2-c78d37774cfa", "ts": "2026-05-06T06:57:00.630939+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
 {"id": "f2cb6e33-8a7b-46fb-9efb-9b0321867d0c", "ts": "2026-05-06T07:00:20.054823+00:00", "event_type": "threat", "summary": "prompt_injection_detected", "detail": {"attack_type": "instruction_override", "confidence": 0.75}}
 {"id": "10e84bcd-4743-46fc-8de3-6c746ae4e3cb", "ts": "2026-05-06T07:00:37.367373+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "346ad2cf-23c0-408a-8d2b-cdd70f66ecc5", "ts": "2026-05-06T07:12:48.692567+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "1e2bafc2-bc56-4af2-81f8-b8992a2430a6", "ts": "2026-05-06T07:14:36.289819+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "528bdf6d-55d3-40b2-bf18-0040450c88de", "ts": "2026-05-06T07:14:45.234590+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "b7ee679e-3cd8-433e-bdca-f854f0aca234", "ts": "2026-05-06T07:15:03.024817+00:00", "event_type": "threat", "summary": "prompt_injection_detected", "detail": {"attack_type": "instruction_override", "confidence": 0.75}}
+{"id": "2fec669d-4927-4b58-b6fe-56595f659514", "ts": "2026-05-06T07:16:26.134096+00:00", "event_type": "threat", "summary": "prompt_injection_detected", "detail": {"attack_type": "instruction_override", "confidence": 0.8999999999999999}}
+{"id": "d0ab871e-564a-4a1d-941f-a3118a43ba14", "ts": "2026-05-06T07:16:38.161458+00:00", "event_type": "threat", "summary": "prompt_injection_detected", "detail": {"attack_type": "instruction_override", "confidence": 0.8999999999999999}}
+{"id": "bc7f6476-9af0-4e3a-8055-e9596ecdb014", "ts": "2026-05-06T07:17:17.336081+00:00", "event_type": "threat", "summary": "prompt_injection_detected", "detail": {"attack_type": "instruction_override", "confidence": 0.8999999999999999}}
+{"id": "387d4a94-0879-4333-9b37-aaf431589eb6", "ts": "2026-05-06T07:22:48.098984+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "6bd5c3c0-8084-466a-ad7b-0a8ef3ed4e0b", "ts": "2026-05-06T07:23:14.032146+00:00", "event_type": "chat_check", "summary": "user_message_pii_redacted", "detail": {"length_before": 52}}
+{"id": "5e9ffcd9-8d50-44b0-985c-b14c2874ce4d", "ts": "2026-05-06T07:23:14.033201+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "aa153efd-1390-45e0-86c0-4354d2acdd11", "ts": "2026-05-06T07:24:03.344507+00:00", "event_type": "chat_check", "summary": "user_message_pii_redacted", "detail": {"length_before": 52}}
+{"id": "afe8d747-34ff-4eff-9232-9d8910bd352b", "ts": "2026-05-06T07:24:03.345507+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "0da5525b-d2cd-4606-849a-c6d0e5b69655", "ts": "2026-05-06T08:22:03.793175+00:00", "event_type": "chat_check", "summary": "user_message_pii_redacted", "detail": {"length_before": 43}}
+{"id": "1b2dbf01-edb8-4e13-81a1-a767dfd6d850", "ts": "2026-05-06T08:22:03.795184+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "b46aca2e-97ca-49e1-8d0a-03aa92dca86e", "ts": "2026-05-06T08:22:25.509419+00:00", "event_type": "chat_check", "summary": "user_message_pii_redacted", "detail": {"length_before": 43}}
+{"id": "c7354584-22aa-4809-a741-564ca7d85f47", "ts": "2026-05-06T08:22:25.510418+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "acf6078d-fe40-473c-81da-47a313cf3e69", "ts": "2026-05-06T08:32:08.878701+00:00", "event_type": "threat", "summary": "prompt_injection_detected", "detail": {"attack_type": "instruction_override", "confidence": 0.8999999999999999}}
