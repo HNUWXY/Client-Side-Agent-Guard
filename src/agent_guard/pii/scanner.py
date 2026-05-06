@@ -10,7 +10,7 @@ class PIIScanner:
     """基于正则的 PII 跨度扫描（与先前 dlp 包逻辑等价，独立于其它目录）。"""
 
     PATTERNS: dict[PIIType, str] = {
-        PIIType.SSN: r"\b\d{3}-\d{2}-\d{4}\b",
+        PIIType.RIC: r"\b\d{17}[0-9Xx]\b",
         PIIType.CREDIT_CARD: r"\b\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b",
         PIIType.EMAIL: r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b",
         PIIType.PHONE: r"\b(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\b",
@@ -19,7 +19,7 @@ class PIIScanner:
 
     def __init__(self, pii_types: Optional[Iterable[str]] = None):
         self.pii_types = list(pii_types) if pii_types is not None else [
-            "ssn",
+            "ric",
             "credit_card",
             "email",
             "phone",

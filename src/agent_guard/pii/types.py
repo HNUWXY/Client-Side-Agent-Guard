@@ -5,7 +5,7 @@ from enum import Enum
 
 
 class PIIType(Enum):
-    SSN = "ssn"
+    RIC = "ric"
     CREDIT_CARD = "credit_card"
     EMAIL = "email"
     PHONE = "phone"

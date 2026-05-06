@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import uuid
 from dataclasses import asdict
 from datetime import datetime, timezone
@@ -39,6 +40,9 @@ class AuditSink:
         if len(self._buf) > self.memory_max:
             self._buf = self._buf[-self.memory_max :]
         if self.path:
+            parent = os.path.dirname(os.path.abspath(self.path))
+            if parent and not os.path.exists(parent):
+                os.makedirs(parent, exist_ok=True)
             with open(self.path, "a", encoding="utf-8") as f:
                 f.write(json.dumps(row, ensure_ascii=False) + "\n")
         return eid
