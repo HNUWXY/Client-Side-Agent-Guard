@@ -136,9 +136,9 @@ export async function invokePluginToolWithGuard(
     consent_required?: boolean;
   };
 
-  const postOnce = async (approve: boolean): Promise<
-    GuardJson | { httpError: true; status: number }
-  > => {
+  const postOnce = async (
+    approve: boolean,
+  ): Promise<GuardJson | { httpError: true; status: number }> => {
     const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -187,9 +187,7 @@ export async function invokePluginToolWithGuard(
     }
 
     if (!data.allowed) {
-      throw new Error(
-        `[安全网关] ${data.block_reason || "tool_blocked"}`,
-      );
+      throw new Error(`[安全网关] ${data.block_reason || "tool_blocked"}`);
     }
 
     const args = data.sanitized_arguments ?? rawArgs;

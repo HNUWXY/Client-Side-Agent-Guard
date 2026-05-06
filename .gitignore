@@ -50,8 +50,15 @@ masks.json
 # mcp config
 app/mcp/mcp_config.json
 
+
+__pycache__/
+*.pyc
+
 docs0/
 
 agent/
 
 agent-security/
+
+articles
+

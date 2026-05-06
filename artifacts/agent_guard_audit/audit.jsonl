@@ -1,0 +1,36 @@
+{"id": "b3a72896-26d5-40d6-9ef2-d30141e63220", "ts": "2026-05-05T11:49:38.399775+00:00", "event_type": "threat", "summary": "prompt_injection_detected", "detail": {"attack_type": "instruction_override", "confidence": 0.75}}
+{"id": "d9970516-4da1-4147-9858-26c2842b8ac3", "ts": "2026-05-05T11:51:32.301402+00:00", "event_type": "threat", "summary": "prompt_injection_detected", "detail": {"attack_type": "instruction_override", "confidence": 0.75}}
+{"id": "53394a20-ab53-48f9-bb8d-fc44581bb90b", "ts": "2026-05-05T11:51:38.898956+00:00", "event_type": "threat", "summary": "prompt_injection_detected", "detail": {"attack_type": "instruction_override", "confidence": 0.75}}
+{"id": "1e257809-5322-418e-aab5-d523149bd90a", "ts": "2026-05-05T11:58:17.716517+00:00", "event_type": "chat_check", "summary": "user_message_pii_redacted", "detail": {"length_before": 41}}
+{"id": "4e1ca812-d636-46b5-b762-4ff373f28119", "ts": "2026-05-05T11:58:17.718519+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "ed08ecf3-0221-4cd8-ae81-ce2c3be2cb11", "ts": "2026-05-05T11:58:36.970766+00:00", "event_type": "chat_check", "summary": "user_message_pii_redacted", "detail": {"length_before": 80}}
+{"id": "a51e4333-7a94-4b10-ac6f-f468a63c8ffe", "ts": "2026-05-05T11:58:36.972768+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "72631c4e-b7bd-4ce0-a84a-a74ea753e09a", "ts": "2026-05-05T12:08:53.653904+00:00", "event_type": "sandbox_deny", "summary": "url_blocked:fetch_url", "detail": {"key": "url", "url": "https://example.com"}}
+{"id": "dd5856d7-e52e-4c5d-8dbc-156fbf416559", "ts": "2026-05-05T12:09:01.566419+00:00", "event_type": "dlp_deny", "summary": "pii_in_tool_args:http_request", "detail": {"types": ["ip_address", "ric"]}}
+{"id": "8395ba55-b83f-4c7c-beab-60b64a756bb8", "ts": "2026-05-05T12:09:46.705783+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "45a7fedf-f199-4e3d-a0ea-92f33e15f32d", "ts": "2026-05-05T12:17:09.570386+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "c2071afd-3d3e-4259-bfa3-ba1e01374fe4", "ts": "2026-05-05T12:17:56.491588+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "e0dbb53e-e8c4-4e53-b644-efcf77228347", "ts": "2026-05-05T12:17:59.300392+00:00", "event_type": "sandbox_deny", "summary": "url_blocked:exfil_http", "detail": {"key": "url", "url": "https://example.com"}}
+{"id": "5f49e56d-444e-4381-a650-95f052f23363", "ts": "2026-05-05T12:18:32.110926+00:00", "event_type": "chat_check", "summary": "user_message_pii_redacted", "detail": {"length_before": 105}}
+{"id": "67863744-51c7-4bd2-a04a-e8de161509fb", "ts": "2026-05-05T12:18:32.111924+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "ea83aa3e-85a9-42cd-8949-062302136fa8", "ts": "2026-05-05T12:18:59.714128+00:00", "event_type": "chat_check", "summary": "user_message_pii_redacted", "detail": {"length_before": 105}}
+{"id": "b81f48a7-99be-4f3d-aa80-aa7d564cf1a6", "ts": "2026-05-05T12:18:59.716129+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "a4bbea4b-9060-4554-a014-65c0cc2c7ecd", "ts": "2026-05-05T12:22:13.716699+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "7a790af4-06f0-487c-b518-3c95069a7539", "ts": "2026-05-05T12:22:17.790207+00:00", "event_type": "sandbox_deny", "summary": "url_blocked:exfil_http", "detail": {"key": "url", "url": "http://*********:1"}}
+{"id": "8c824428-d24f-4eba-a0f5-306ff5ea0bc6", "ts": "2026-05-05T12:25:15.377723+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "f142d331-8ae2-4fd3-8b18-69dcbb7ea877", "ts": "2026-05-05T12:25:17.983435+00:00", "event_type": "sandbox_deny", "summary": "url_blocked:exfil_http", "detail": {"key": "url", "url": "https://example.com"}}
+{"id": "98469c79-807f-4b52-a56e-bf069b4d2534", "ts": "2026-05-05T12:26:25.514457+00:00", "event_type": "chat_check", "summary": "user_message_pii_redacted", "detail": {"length_before": 175}}
+{"id": "4dfdad98-6cfe-49d2-8e98-a4e4a11ab35e", "ts": "2026-05-05T12:26:25.516457+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "b9abb85a-a373-49f0-bfba-b9a7cba74696", "ts": "2026-05-05T12:26:28.336295+00:00", "event_type": "sandbox_deny", "summary": "url_blocked:exfil_http", "detail": {"key": "url", "url": "http://*********:1"}}
+{"id": "9fe077fc-8a3f-4f45-9df6-d2d19cdc80a1", "ts": "2026-05-05T12:34:14.361247+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "244e96e8-6cf2-4aa0-89a0-264314f40512", "ts": "2026-05-05T12:36:29.443304+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "b7037351-fff3-43b9-8486-1af62ace7b1d", "ts": "2026-05-05T12:36:33.302245+00:00", "event_type": "sandbox_deny", "summary": "path_out_of_sandbox:read_file", "detail": {"key": "path", "path": "/path/to/your/file.txt"}}
+{"id": "b55420c5-6ea5-456a-8927-62b27038fa20", "ts": "2026-05-05T12:37:22.026623+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "c2e0a4a1-93a1-4f50-af24-9228f312dedb", "ts": "2026-05-05T12:37:25.214400+00:00", "event_type": "sandbox_deny", "summary": "url_blocked:exfil_http", "detail": {"key": "url", "url": "http://baidu.com"}}
+{"id": "dab739a4-8393-4443-8bdf-a99cd7d0d0e0", "ts": "2026-05-05T12:37:55.215595+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "cd3d1148-26d3-4abf-a6f4-def2c41394f8", "ts": "2026-05-05T12:37:57.801543+00:00", "event_type": "tool_before", "summary": "allow:exfil_http", "detail": {"arg_keys": ["url", "content"]}}
+{"id": "88cc5615-6f05-42b1-92a8-d505eee6bb8e", "ts": "2026-05-05T12:40:33.247292+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "400386c8-c1d5-42a4-8eef-048e28a2d055", "ts": "2026-05-05T12:40:35.849536+00:00", "event_type": "sandbox_deny", "summary": "url_blocked:exfil_http", "detail": {"key": "url", "url": "http://baidu.com"}}
+{"id": "cec2a0b6-7a47-4f3e-92d2-c78d37774cfa", "ts": "2026-05-06T06:57:00.630939+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}
+{"id": "f2cb6e33-8a7b-46fb-9efb-9b0321867d0c", "ts": "2026-05-06T07:00:20.054823+00:00", "event_type": "threat", "summary": "prompt_injection_detected", "detail": {"attack_type": "instruction_override", "confidence": 0.75}}
+{"id": "10e84bcd-4743-46fc-8de3-6c746ae4e3cb", "ts": "2026-05-06T07:00:37.367373+00:00", "event_type": "chat_check", "summary": "user_message_ok", "detail": {}}

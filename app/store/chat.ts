@@ -874,10 +874,10 @@ export const useChatStore = createPersistStore(
               console.debug("[MCP Request]", mcpRequest);
 
               executeMcpAction(
-                  mcpRequest.clientId,
-                  mcpRequest.mcp,
-                  get().currentSession()?.id,
-                )
+                mcpRequest.clientId,
+                mcpRequest.mcp,
+                get().currentSession()?.id,
+              )
                 .then((result) => {
                   console.log("[MCP Response]", result);
                   const mcpResponse =

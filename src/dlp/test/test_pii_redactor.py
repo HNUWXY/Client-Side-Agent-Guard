@@ -6,12 +6,21 @@ from dlp.sanitizers.pii_redactor import PIIRedactor
 
 
 def test_scan_returns_spans_for_multiple_types():
-    text = "Email a@b.com, phone 415-555-2671, ip 1.2.3.4, ssn 123-45-6789."
+    text = "Email a@b.com, phone 415-555-2671, ip 1.2.3.4, ric 11010519491231002X."
     scanner = PIIScanner()
     detections = scanner.scan(text)
     assert len(detections) >= 4
     for d in detections:
         assert 0 <= d.start_pos < d.end_pos <= len(text)
+
+
+def test_scan_china_id_allows_lowercase_x():
+    text = "id 11010519491231002x"
+    scanner = PIIScanner(pii_types=["ric"])
+    detections = scanner.scan(text)
+    assert len(detections) == 1
+    d = detections[0]
+    assert text[d.start_pos:d.end_pos] == "11010519491231002x"
 
 
 def test_redact_masks_same_length():
